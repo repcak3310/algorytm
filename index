@@ -1,0 +1,172 @@
+<!DOCTYPE HTML>
+<html lang="pl">
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<title>Algorytm Euklidesa (obliczanie NWD)</title>
+	<meta name="description" content="Algorytm Euklidesa" />
+	<meta name="keywords" content="NWD, algorytm" />
+	<link rel="stylesheet" type="text/css"/>
+<script>
+	function f1()
+	{
+		var a = document.getElementById("a").value;
+		var b = document.getElementById("b").value;
+		var wynik;
+		while(a != b)
+		{
+			if(a < b) b = b - a;
+			else a = a - b;
+		}
+		wynik = a
+		document.getElementById("wynik").innerHTML = wynik;	
+	}
+</script>
+<style>
+body
+{
+	padding-bottom: 50px;
+	padding-left:50px;
+	padding-right:50px;
+	font-family: monospace;
+	background-color: #b798e5;
+}
+
+#tekst
+{
+	font-size: 24px;
+}
+
+#a
+{
+	height: 15px;
+	width: 50px;
+    background-color: #6bc87c;
+    border-radius: 10px;
+    font-size: 20px;
+    font-family: monospace;
+    padding: 5px 30px;
+    display: inline-block;
+    border: 2px solid #e73b5f;    
+}
+
+#b
+{
+	height: 15px;
+	width: 50px;
+    background-color: #6bc87c;
+    border-radius: 10px;
+    font-size: 20px;
+    font-family: monospace;
+    padding: 5px 30px;
+    display: inline-block;
+    border: 2px solid #e73b5f;    
+}
+
+code
+{
+	font-size: 15px;
+}
+
+h2
+{
+	border-radius: 15px;
+	padding: 5px;
+	background: #952bdb;
+	color: white;
+}
+
+h1
+{
+	color: black;
+	text-align: center;
+	font-size: 40px;
+	font-family: monospace;
+}
+
+#wynik
+{	
+	font-size: 50px;
+}
+
+</style>
+
+
+</head>
+
+<body>
+<h1>Algorytm Euklidesa</h1>
+<h2>Przedstawienie Problemu</h2>
+Dla danych dwóch liczb naturalnych a  i b  należy znaleźć największą liczbę naturalną c, która dzieli bez reszty liczbę a  i dzieli bez reszty liczbę b.
+
+<h2>Schemat blokowy</h2>
+<center><img src = "alg1.jpg"></center>
+
+<br>
+<h2>Kod cpp</h2>
+
+<pre ><code><span >#include &lt;iostream&gt;</span>
+<span >using namespace</span> <span >std</span><span >;</span>
+
+<span >int</span> main<span >()</span>
+&lcub;
+    <span >int</span> a,b<span >;</span>
+    <span>cin</span> <span >&gt;&gt;</span> a <span >&gt;&gt;</span> b<span >;</span>
+
+    <span >while</span><span >(</span>a <span>!=</span> b<span >)</span>
+        <span >if</span><span >(</span>a <span >&gt;</span> b<span >)</span> a <span >-=</span> b<span >;</span>
+        <span>else</span>      b <span >-=</span> a<span >;</span>
+
+    <span >cout</span> <span >&lt;&lt;</span> a <span >&lt;&lt;</span> <span >endl</span><span >;</span>
+
+    <span >return</span> <span >0</span><span >;</span>
+&rcub;
+</code></pre>
+<br>
+<h2>Kod python</h2>
+<pre><code><span >def</span> <span >NWD</span>(a,b):
+    <span >while</span> a != b:
+        <span >if</span> a&gt;b: a -= b
+        <span >else</span>: b -= a
+    <span >return</span> a
+ 
+a = <span>(<span >input</span>())
+b = <span>int</span>(<span>input</span>())
+ 
+<span >print</span>(NWD(a,b))</code></pre>
+<br>
+<h2>Skrypt JS</h2>
+<pre style="width:100%;padding:0px" id="codeblock"><code><span>&lt;script&gt;</span>
+	<span>function</span> f1()
+	&lcub;
+		<span>var</span> a = document.getElementById(<span>"a"</span>).value;
+		<span>var</span> b = document.getElementById(<span>"b"</span>).value;
+		<span>var</span> t;
+		
+		<span>while</span>(a != b)
+		&lcub;
+			<span>if</span>(a &lt; b) b = b - a;
+			<span>else</span> a = a - b;
+		&rcub;
+		
+		t = a
+		
+		document.getElementById("wynik").innerHTML = t;	
+	&rcub;
+
+<span <code>&lt;/script&gt;</span></code></pre>
+<br>
+
+<center>
+<p><strong>Skrypt obliczający NWD liczb "a" i "b"</strong></p><br>
+<strong>a =</strong>
+<input type = "number" id = "a">
+<strong>b =</strong>
+<input type = "number" id = "b">
+<br><br>
+<input type = "button" value = "Oblicz" onclick = "f1()">
+<br><br>
+<div id = "wynik">WYNIK</div>
+</center>
+</body>
+</html>
